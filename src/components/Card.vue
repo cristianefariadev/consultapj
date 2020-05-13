@@ -5,10 +5,10 @@
       <p>Faça sua pesquisa!</p>
     </div>-->
     <div class="busca">
-      <li>
+      <p>
         Resultados de:
         <strong>32.198.165/00001-65</strong>
-      </li>
+      </p>
       <p>
         Situação:
         <strong>Ativa</strong>
@@ -49,18 +49,6 @@
   </div>
 </template>
 
-<!--
-// <script>
-// import Content from './Content.vue'
-
-// export default {
-//   name: 'Card',
-//   components: {
-//     Content
-//   }
-// }
-</script>
--->
 <style scoped>
 
 .card {
@@ -87,8 +75,11 @@
   padding-bottom: 24px;
 }
 
-p{
+p {
+  font-size: 1.25rem;
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 </style>

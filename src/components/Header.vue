@@ -2,7 +2,7 @@
   <div class="header">
     <div class="titulo">
       <h1>Pesquisa CNPJ</h1>
-      <h2>Encontre os dados dos seus clientes</h2>
+      <h2>Valide os dados dos seus clientes através do CNPJ</h2>
     </div>
     <Form/>
   </div>
