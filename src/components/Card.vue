@@ -59,6 +59,12 @@
   padding: 24px;
   border-radius: 4px;
 }
+@media screen and (max-width: 660px) {
+   .card {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
 
 .vazio {
   display: flex;

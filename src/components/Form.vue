@@ -18,12 +18,18 @@ export default {
   flex-direction: row;
   margin: 40px auto 20px;
 }
+@media screen and (max-width: 660px) {
+   .form {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
 input {
   flex: 1;
   border: 1px solid #eee;
   padding: 12px 16px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 18px;
 }
 button {
   background: #DB2E79;
