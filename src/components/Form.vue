@@ -1,13 +1,46 @@
 <template>
   <div class="form">
     <input type="text" placeholder="Digite o CNPJ" />
-    <button type="submit"><img src="../assets/icon-search.svg" alt="Icone Search"></button>
+    <button @click.prevent.stop="getCnpj()"
+      type="submit"><img src="../assets/icon-search.svg" alt="Icone Search">
+    </button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import apiUrl from '../services/ApiUrl'
+
 export default {
-  name: 'Form'
+  name: 'Form',
+
+  data () {
+    return {
+      cnpj: '32198189000165',
+      loading: true,
+      errored: false
+    }
+  },
+  methods: {
+    getCnpj () {
+      const url = `${apiUrl}/${this.cnpj}`
+      console.log(this.cnpj)
+      console.log(apiUrl)
+      console.log(url)
+      axios.get(url)
+        .then((response) => {
+          this.cnpj = response.data
+          console.log(this.cnpj)
+        })
+        .catch(error => {
+          this.errored = true
+          console.log(error + ' deu merda')
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    }
+  }
 }
 
 </script>
