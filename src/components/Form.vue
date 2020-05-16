@@ -8,37 +8,27 @@
 </template>
 
 <script>
-import axios from 'axios'
-import apiUrl from '../services/ApiUrl'
+const jsonp = require('jsonp')
+export default {
+  name: 'Form',
 
-export default {
-  name: 'Form',
-
-  data () {
-    return {
-      cnpj: '32198189000165',
-      loading: true,
-      errored: false
+  data () {
+    return {
+      cnpj: '32198189000165',
+      loading: true,
+      errored: false
     }
   },
-  methods: {
-    getCnpj () {
-      const url = `${apiUrl}/${this.cnpj}`
-      console.log(this.cnpj)
-      console.log(apiUrl)
-      console.log(url)
-      axios.get(url)
-        .then((response) => {
-          this.cnpj = response.data
-          console.log(this.cnpj)
-        })
-        .catch(error => {
-          this.errored = true
-          console.log(error + ' deu merda')
-        })
-        .finally(() => {
-          this.loading = false
-        })
+
+  methods: {
+    getCnpj () {
+      jsonp(`https://www.receitaws.com.br/v1/cnpj/${this.cnpj}`, null, (err, data) => {
+        if (err) {
+          console.error(err.message)
+        } else {
+          console.log(data)
+        }
+      })
     }
   }
 }
